@@ -17,7 +17,6 @@ public class ClosestPair {
         double dy = a.y - b.y;
         return Math.hypot(dx, dy);
     }
-
     private static double closestRec(Point[] ptsByX, Point[] aux, int lo, int hi){
         int n = hi - lo;
         if (n <= 3) {
@@ -33,14 +32,12 @@ public class ClosestPair {
         double dl = closestRec(ptsByX, aux, lo, mid);
         double dr = closestRec(ptsByX, aux, mid, hi);
         double d = Math.min(dl, dr);
-
         int i = lo, j = mid, k = lo;
         while (i < mid || j < hi) {
             if (j >= hi || (i < mid && ptsByX[i].y <= ptsByX[j].y)) aux[k++] = ptsByX[i++];
             else aux[k++] = ptsByX[j++];
         }
         System.arraycopy(aux, lo, ptsByX, lo, n);
-
         int stripSize = 0;
         for (int p = lo; p < hi; p++) {
             if (Math.abs(ptsByX[p].x - midx) < d) aux[stripSize++] = ptsByX[p];
