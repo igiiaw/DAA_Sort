@@ -6,14 +6,12 @@ public class MergeSort {
     public static void sort(int[] a) {
         sort(a, null, null);
     }
-
     public static void sort(int[] a, Metrics m, DepthTracker d) {
         if (a == null || a.length < 2) return;
         int[] aux = new int[a.length];
         if (m != null) m.incAllocations(a.length);
         mergeSort(a, aux, 0, a.length - 1, m, d);
     }
-
     private static void mergeSort(int[] a, int[] aux, int left, int right, Metrics m, DepthTracker d) {
         if (d != null) d.enter();
         try {
@@ -29,7 +27,6 @@ public class MergeSort {
             if (d != null) d.exit();
         }
     }
-
     private static void merge(int[] a, int[] aux, int left, int mid, int right, Metrics m) {
         System.arraycopy(a, left, aux, left, right - left + 1);
         if (m != null) m.incAllocations(right - left + 1);

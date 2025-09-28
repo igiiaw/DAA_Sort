@@ -1,19 +1,16 @@
     package cd;
 
     import java.util.concurrent.ThreadLocalRandom;
-
     public class QuickSort {
         private static final int CUTOFF = 16;
 
         public static void sort(int[] a) {
             sort(a, null, null);
         }
-
         public static void sort(int[] a, Metrics m, DepthTracker d) {
             if (a == null || a.length < 2) return;
             quickSort(a, 0, a.length - 1, m, d);
         }
-
         private static void quickSort(int[] a, int lo, int hi, Metrics m, DepthTracker d) {
             if (d != null) d.enter();
             try {
@@ -42,7 +39,6 @@
                 if (d != null) d.exit();
             }
         }
-
         private static int partition(int[] a, int lo, int hi, int pivot, Metrics m) {
             int i = lo;
             for (int j = lo; j < hi; j++) {
