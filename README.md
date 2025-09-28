@@ -106,3 +106,5 @@ Divide-and-conquer is **super versatile**:
 - **QuickSort** → fastest on average
 - **Select** → theoretical safety net
 - **Closest Pair** → recursion applied to geometry  
+
+![Screenshot](img/result.jpg)
